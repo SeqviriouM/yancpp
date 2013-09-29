@@ -6,7 +6,7 @@ using namespace std;
 
 int main ()
 {	
-	string buff,s1=" bar.",s2=" bar.domain.tld",ss1="baz",ss2=" baz.donemain.tld";
+	string buff,s1=" bar",s2=" bar.domain.tld",ss1="baz",ss2=" baz.donemain.tld";
 	int i,ii;
 	ifstream fin;
 	ofstream fout;
@@ -17,11 +17,15 @@ int main ()
 	{
 		
 		i=buff.find(s2);
-		//cout << buff<< " вхождение: "<< i << endl;
+		
 		if (i!=-1)
 		{
-			ii = i + ss2.length();
-			buff.replace(i,ii,ss2);
+			buff.replace(i,ss2.length()-2,ss2);
+		}
+		i = buff.find(s1);
+		if (i!=-1)
+		{
+			buff.replace(i+1,ss1.length(),ss1);
 		}
 		fout << buff<<endl;
 		

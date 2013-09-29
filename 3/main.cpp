@@ -34,7 +34,6 @@ int main ()
 			buff.insert(ii,"    ");
 			buff.replace(ii,3,"dns");
 			
-			
 		}
 		
 		fout << buff <<endl;
