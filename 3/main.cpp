@@ -6,24 +6,37 @@ using namespace std;
 
 int main () 
 {
-	string buff, s="hosts",s1="dns",s2="files";
+	string buff, s="hosts",ss;
 	ifstream fin;
 	ofstream fout;
 	fin.open ("input.txt");
 	fout.open ("output.txt");
-	int i,ii;
-	cout << "npos= "<<std::string::npos<<endl;
+	int i,ii=0,m;
+	
 	while (getline(fin,buff)!=NULL)
 	{
-		i=buff.find(s);
+		i=buff.find ("hosts");
 		if (i!=-1)
 		{
-			ii=buff.find(s2);
-			if (ii!=-1)
-				{
-					buff.replace(ii,ii+s1.length(),s1);
-				}
+			while (buff[ii]!=' ')
+			{
+				ii++;
+			}
+			
+			while (buff[ii]==' ')
+			{
+				ii++;
+			} 
+		
+			m = buff.find(" dns ");
+			buff.insert (m+5," ");
+			buff.erase (m,5);
+			buff.insert(ii,"    ");
+			buff.replace(ii,3,"dns");
+			
+			
 		}
+		
 		fout << buff <<endl;
 	}
 		

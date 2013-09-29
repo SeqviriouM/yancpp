@@ -8,7 +8,7 @@ passwd:         compat
 group:          compat
 shadow:         compat
 
-hosts:          dns [NOTFOUND=return] dns mdns4
+hosts:          dns files mdns4_minimal [NOTFOUND=return] mdns4
 networks:       files
 
 protocols:      db files
